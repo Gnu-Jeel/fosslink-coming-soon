@@ -67,7 +67,7 @@
 /* Main Container */
 .container {
   max-width: 900px;
-  width: 90%;
+  width: 100%;
   text-align: center;
   padding: 3rem;
   background: rgba(255, 255, 255, 0.05);
@@ -94,7 +94,7 @@
 .logo {
   width: 120px;
   height: auto;
-  animation: breathe 4s ease-in-out infinite;
+  animation: breathe 3s ease-in-out infinite;
 }
 
 /* Typography */
@@ -108,12 +108,12 @@
 }
 
 .container h2 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
   background: #fff;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .aiHeading {
