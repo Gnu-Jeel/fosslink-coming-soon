@@ -48,7 +48,7 @@ export default function Home() {
         body: JSON.stringify(formData)
       });
 
-      setStatus('Thanks! We\'ll notify you when we launch our smart home solutions.');
+      setStatus('Thanks! We\'ll try to connect to you as soon as possible.');
       setIsSubmitted(true);
     } catch (error) {
       setStatus('Error occurred. Please try again later.');
