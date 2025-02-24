@@ -99,81 +99,85 @@ export default function Home() {
         </div>
 
         <div className={`${styles.formContainer} ${isSubmitted ? styles.submitted : ''}`}>
-          {!isSubmitted ? (
-            <form onSubmit={handleSubmit} className={styles.form}>
-              <div className={styles.inputGroup}>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  required
-                  disabled={loading}
-                />
-                <div className={styles.inputIcon}>✉️</div>
-              </div>
-
-              <div className={styles.inputGroup}>
-                <input
-                  type="tel"
-                  placeholder="Enter mobile number (optional)"
-                  value={formData.mobile}
-                  onChange={(e) => setFormData({...formData, mobile: e.target.value})}
-                  pattern="[6-9][0-9]{9}"
-                  title="Please enter a valid 10-digit mobile number"
-                  disabled={loading}
-                />
-                <div className={styles.inputIcon}>📱</div>
-              </div>
-
-              <button 
-                type="submit" 
-                disabled={loading}
-                className={styles.submitButton}
-              >
-                {loading ? (
-                  <span className={styles.loader}></span>
-                ) : (
-                  'Request Contact'
-                )}
-              </button>
-            </form>
-          ) : (
-            <div className={styles.successMessage}>
-              <div className={styles.checkmark}>
-                <div className={styles.checkmarkCircle}></div>
-                <div className={styles.checkmarkStem}></div>
-                <div className={styles.checkmarkKick}></div>
-              </div>
-              <h2>Thank You!</h2>
-              <p>We'll try to connect to you as soon as possible.</p>
-              <div className={styles.socialLinks}>
-                <a 
-                  href="https://instagram.com/fosslink" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.socialLink}
-                >
-                  <span className={styles.socialIcon}>📱</span>
-                </a>
-                <a 
-                  href="mailto:contact@fosslink.in" 
-                  className={styles.socialLink}
-                >
-                  <span className={styles.socialIcon}>📧</span>
-                </a>
-                <a 
-                  href="https://wa.me/+917383896029" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.socialLink}
-                >
-                  <span className={styles.socialIcon}>💬</span>
-                </a>
-              </div>
-            </div>
-          )}
+  {/* Social Links - Now outside the conditional rendering */}
+  {!isSubmitted ? (
+    <>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.inputGroup}>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            value={formData.email}
+            onChange={(e) => setFormData({...formData, email: e.target.value})}
+            required
+            disabled={loading}
+          />
+          <div className={styles.inputIcon}>✉️</div>
         </div>
+
+        <div className={styles.inputGroup}>
+          <input
+            type="tel"
+            placeholder="Enter mobile number (optional)"
+            value={formData.mobile}
+            onChange={(e) => setFormData({...formData, mobile: e.target.value})}
+            pattern="[6-9][0-9]{9}"
+            title="Please enter a valid 10-digit mobile number"
+            disabled={loading}
+          />
+          <div className={styles.inputIcon}>📱</div>
+        </div>
+
+        <button 
+          type="submit" 
+          disabled={loading}
+          className={styles.submitButton}
+        >
+          {loading ? (
+            <span className={styles.loader}></span>
+          ) : (
+            'Request Contact'
+          )}
+        </button>
+      </form>
+    </>
+  ) : (
+    <div className={styles.successMessage}>
+      <div className={styles.checkmark}>
+        <div className={styles.checkmarkCircle}></div>
+        <div className={styles.checkmarkStem}></div>
+        <div className={styles.checkmarkKick}></div>
+      </div>
+      <h2>Thank You!</h2>
+      <p>We'll try to connect to you as soon as possible.</p>
+    </div>
+  )}
+</div>
+
+<div className={styles.socialLinks}>
+    <a 
+      href="https://instagram.com/fosslink" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className={styles.socialLink}
+    >
+      <span className={styles.socialIcon}>📱</span>
+    </a>
+    <a 
+      href="mailto:contact@fosslink.in" 
+      className={styles.socialLink}
+    >
+      <span className={styles.socialIcon}>📧</span>
+    </a>
+    <a 
+      href="https://wa.me/+917383896029" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className={styles.socialLink}
+    >
+      <span className={styles.socialIcon}>💬</span>
+    </a>
+  </div>
 
         {status && !isSubmitted && (
           <p className={`${styles.status} ${status.includes('Error') ? styles.error : styles.success}`}>
